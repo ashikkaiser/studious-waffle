@@ -25,6 +25,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 // dd(route('password.reset'));
 
+Route::get('/setup', function () {
+    Artisan::call('storage:link');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+});
 
 
 
